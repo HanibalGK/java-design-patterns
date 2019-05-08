@@ -1,4 +1,5 @@
 package com.learn.balking;
 
-public class WashingMachineState {
+public enum WashingMachineState {
+    ENABLED,WASHING
 }

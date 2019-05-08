@@ -25,6 +25,8 @@ package com.iluwatar.balking;
 /**
  * WashingMachineState enum describes in which state machine is,
  * it can be enabled and ready to work as well as during washing
+ * WashingMachineState 枚举类说明
+ * ${@link WashingMachine} 的状态为 ${@value "ENABLED"} 的话, 则表明可以准备工作并开始 washing
  */
 
 public enum WashingMachineState {

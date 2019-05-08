@@ -29,6 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Washing machine class
+ * WashingMachine 类
  */
 public class WashingMachine {
 
@@ -38,6 +39,7 @@ public class WashingMachine {
 
   /**
    * Creates a new instance of WashingMachine
+   * 创建一个新的 WashingMachine 实例
    */
   public WashingMachine() {
     this((interval, timeUnit, task) -> {
@@ -53,6 +55,7 @@ public class WashingMachine {
   /**
    * Creates a new instance of WashingMachine using provided delayProvider. This constructor is used only for
    * unit testing purposes.
+   * 通过 delayProvider  创建 WashingMachine 实例. 这个创建仅被用在测试情况下
    */
   public WashingMachine(DelayProvider delayProvider) {
     this.delayProvider = delayProvider;
@@ -66,6 +69,8 @@ public class WashingMachine {
   /**
    * Method responsible for washing
    * if the object is in appropriate state
+   *
+   * 标志运行状态的方法
    */
   public void wash() {
     synchronized (this) {
@@ -84,6 +89,8 @@ public class WashingMachine {
   /**
    * Method responsible of ending the washing
    * by changing machine state
+   *
+   * 标志结束状态的方法
    */
   public synchronized void endOfWashing() {
     washingMachineState = WashingMachineState.ENABLED;

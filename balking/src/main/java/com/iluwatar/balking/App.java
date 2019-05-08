@@ -34,11 +34,18 @@ import java.util.concurrent.TimeUnit;
  * then the method will return without doing anything. Objects that use this pattern are generally only in a
  * state that is prone to balking temporarily but for an unknown amount of time
  *
+ * Balking Design Pattern 如果对象在调用方法时状态不可调用, 方法会返回不做任何事情.
+ * 对象使用这个方法只是暂时的做调用, 但是并不清楚调用的时间
+ *
  * In this example implementation WashingMachine is an object that has two states
  * in which it can be: ENABLED and WASHING. If the machine is ENABLED
  * the state is changed into WASHING that any other thread can't invoke this action on this and then do the job.
  * On the other hand if it have been already washing and any other thread execute wash()
  * it can't do that once again and returns doing nothing.
+ *
+ * 在示例中, WashingMachine 这个对象有两个状态 [ ENABLED WASHING ]
+ * 如果 machine 在 ENABLED 状态, 则将状态变为 WASHING 状态, 并且其他线程不能调用这个方法
+ *
  */
 
 public class App {
@@ -50,7 +57,9 @@ public class App {
    */
   public static void main(String... args) {
     final WashingMachine washingMachine = new WashingMachine();
+    // 创建 3 个固定 Executors 线程池
     ExecutorService executorService = Executors.newFixedThreadPool(3);
+    // 循环执行
     for (int i = 0; i < 3; i++) {
       executorService.execute(washingMachine::wash);
     }

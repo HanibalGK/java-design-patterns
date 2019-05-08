@@ -26,7 +26,14 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * An interface to simulate delay while executing some work.
+ * 延迟执行接口
  */
 public interface DelayProvider {
+  /**
+   * 延迟执行方法
+   * @param interval  延迟时间
+   * @param timeUnit  延迟时间单位
+   * @param task      执行任务
+   */
   void executeAfterDelay(long interval, TimeUnit timeUnit, Runnable task);
 }
