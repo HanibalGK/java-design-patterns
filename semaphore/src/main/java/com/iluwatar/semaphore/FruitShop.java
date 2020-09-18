@@ -31,7 +31,7 @@ public class FruitShop {
   /**
    * The FruitBowl instances stored in the class.
    */
-  private FruitBowl[] bowls = {
+  private final FruitBowl[] bowls = {
       new FruitBowl(),
       new FruitBowl(),
       new FruitBowl()
@@ -40,7 +40,7 @@ public class FruitShop {
   /**
    * Access flags for each of the FruitBowl instances.
    */
-  private boolean[] available = {
+  private final boolean[] available = {
       true,
       true,
       true
@@ -49,13 +49,13 @@ public class FruitShop {
   /**
    * The Semaphore that controls access to the class resources.
    */
-  private Semaphore semaphore;
+  private final Semaphore semaphore;
 
   /**
    * FruitShop constructor.
    */
   public FruitShop() {
-    for (int i = 0; i < 100; i++) {
+    for (var i = 0; i < 100; i++) {
       bowls[0].put(new Fruit(Fruit.FruitType.APPLE));
       bowls[1].put(new Fruit(Fruit.FruitType.ORANGE));
       bowls[2].put(new Fruit(Fruit.FruitType.LEMON));

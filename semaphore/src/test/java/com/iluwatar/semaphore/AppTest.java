@@ -25,15 +25,15 @@ package com.iluwatar.semaphore;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
  * Application Test Entrypoint
  */
-public class AppTest {
+class AppTest {
+
   @Test
-  public void test() {
-    String[] args = {};
-    App.main(args);
+  void shouldExecuteWithoutException() {
+    assertDoesNotThrow(() -> App.main(new String[]{}));
   }
 }

@@ -25,15 +25,16 @@ package com.iluwatar.gameloop;
 
 import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 /**
  * App unit test class.
  */
 public class AppTest {
 
   @Test
-  public void testMain() {
-    String[] args = {};
-    new App().main(args);
+  public void shouldExecuteApplicationWithoutException() {
+    assertDoesNotThrow(() -> App.main(new String[]{}));
   }
 
 }
